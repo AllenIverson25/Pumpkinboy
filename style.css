@@ -1,184 +1,208 @@
+/* Basic styling for the entire page */
 html,
 body {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, #160909 0%,#160909 45%,#291111 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: radial-gradient(ellipse at center, #160909 0%, #160909 45%, #291111 100%); /* Dark radial gradient background */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Prevent scrollbars from appearing */
 }
 
+/* Container for the pumpkin and its elements */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transition: 0.5s ease-in-out;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack children vertically */
+    transition: 0.5s ease-in-out; /* Smooth transition for hover effects */
 }
-.container:hover{
-    transform: scale(2.5);
-    
+
+/* Hover effect to scale the container */
+.container:hover {
+    transform: scale(2.5); /* Scale up the container */
+    cursor: pointer;
 }
+
+/* Active state to rotate the container when clicked */
 .container:active {
-    transform: rotate(180deg);
+    transform: rotate(180deg); /* Rotate the container */
 }
 
+/* Styling for the pumpkin */
 .pumpkin {
-    height: 11em;
-    width: 15em;
-    background: #f68632;
-    border: 0.4em solid #a14907;
-    border-radius: 70%/110%;
-    position: relative;
-    box-shadow: inset 0 0px 20px #a14907, 0 0 30px -4px red;
-    z-index: 1;
-    animation: float 3s infinite;
+    height: 11em; /* Height of the pumpkin */
+    width: 15em; /* Width of the pumpkin */
+    background: #f68632; /* Pumpkin color */
+    border: 0.4em solid #a14907; /* Border around the pumpkin */
+    border-radius: 70%/110%; /* Oval shape */
+    position: relative; /* Position relative for child elements */
+    box-shadow: inset 0 0px 20px #a14907, 0 0 30px -4px red; /* Inner and outer shadow effects */
+    z-index: 1; /* Layer above other elements */
+    animation: float 3s infinite; /* Floating animation */
 }
 
+/* Texture on the pumpkin */
 .pumpkin .texture {
-    height: 10.8em;
-    width: 6.5em;
-    position: absolute;
-    bottom: -0.4em;
-    left: 4em;
-    border-radius: 70%/130%;
-    border-bottom: 0.5em solid #a14907;
-    border-top: 0.5em solid #a14907;
-  }
+    height: 10.8em; /* Height of the texture */
+    width: 6.5em; /* Width of the texture */
+    position: absolute; /* Position absolute for placement */
+    bottom: -0.4em; /* Positioning below the pumpkin */
+    left: 4em; /* Center the texture */
+    border-radius: 70%/130%; /* Oval shape for texture */
+    border-bottom: 0.5em solid #a14907; /* Border for texture bottom */
+    border-top: 0.5em solid #a14907; /* Border for texture top */
+}
 
-  .pumpkin .texture:after {
-    content: "";
-    display: block;
-    height: 10.7em;
-    width: 12em;
-    position: absolute;
-    bottom: -0.4em;
-    left: -2.5em;
-    border-radius: 70%/130%;
-    border-bottom: 0.5em solid #a14907;
-    border-top: 0.5em solid #a14907;
-    
-  }
+/* Additional texture on the pumpkin */
+.pumpkin .texture:after {
+    content: ""; /* Empty content for pseudo-element */
+    display: block; /* Make it a block element */
+    height: 10.7em; /* Height of the texture */
+    width: 12em; /* Width of the texture */
+    position: absolute; /* Position absolute for placement */
+    bottom: -0.4em; /* Positioning below */
+    left: -2.5em; /* Offset left */
+    border-radius: 70%/130%; /* Oval shape for texture */
+    border-bottom: 0.5em solid #a14907; /* Border for bottom */
+    border-top: 0.5em solid #a14907; /* Border for top */
+}
 
-  .pumpkin .root {
-    background: 
-    #08500b;
-    height: 2.8em;
-    width: 1.25em;
-    position: absolute;
-    left: calc(7.5em - 0.625em);
-    top: -2.7em;
-    transform: rotate(5deg);
-    border-radius: 30% 20% 70% 10%;
-    z-index: -1;
-    box-shadow: inset 0 0px 10px #29412b;
-  }
+/* Pumpkin's stem */
+.pumpkin .root {
+    background: #08500b; /* Stem color */
+    height: 2.8em; /* Height of the stem */
+    width: 1.25em; /* Width of the stem */
+    position: absolute; /* Position absolute for placement */
+    left: calc(7.5em - 0.625em); /* Center the stem */
+    top: -2.7em; /* Position above the pumpkin */
+    transform: rotate(5deg); /* Slight rotation for a natural look */
+    border-radius: 30% 20% 70% 10%; /* Rounded corners */
+    z-index: -1; /* Layer below other elements */
+    box-shadow: inset 0 0px 10px #29412b; /* Inner shadow effect */
+}
 
-  .pumpkin .eye {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 0.8em solid transparent;
-    top: 2.8em;
-  }
+/* Pumpkin's eyes */
+.pumpkin .eye {
+    position: absolute; /* Position absolute for placement */
+    width: 0; /* Width set to 0 for triangular shape */
+    height: 0; /* Height set to 0 for triangular shape */
+    border-top: 0.8em solid transparent; /* Create top triangle */
+    top: 2.8em; /* Position vertically */
+}
 
-  .pumpkin .eye.right {
-    right: 3.7em;
-    transform: rotate(30deg);
-    border-bottom: 2.1em solid transparent;
-    border-left: 2.4em solid #ff2701;
-  }
+/* Right eye */
+.pumpkin .eye.right {
+    right: 3.7em; /* Position to the right */
+    transform: rotate(30deg); /* Slight rotation */
+    border-bottom: 2.1em solid transparent; /* Create bottom triangle */
+    border-left: 2.4em solid #ff2701; /* Left side color */
+}
 
-  .pumpkin .eye.left {
-    left: 3.7em;
-    transform: rotate(-30deg);
-    border-bottom: 2.1em solid transparent;
-    border-right: 2.4em solid #401d03;
-  }
+/* Left eye */
+.pumpkin .eye.left {
+    left: 3.7em; /* Position to the left */
+    transform: rotate(-30deg); /* Slight rotation */
+    border-bottom: 2.1em solid transparent; /* Create bottom triangle */
+    border-right: 2.4em solid #401d03; /* Right side color */
+}
 
-  .pumpkin .mouth {
-    width: 4em;
-    height: 2em;
-    position: absolute;
-    bottom: 1.5em;
-    border-bottom: 1em solid #401d03;
-  }
+/* Pumpkin's mouth */
+.pumpkin .mouth {
+    width: 4em; /* Width of the mouth */
+    height: 2em; /* Height of the mouth */
+    position: absolute; /* Position absolute for placement */
+    bottom: 1.5em; /* Position near the bottom */
+    border-bottom: 1em solid #401d03; /* Bottom border color */
+}
 
-  .pumpkin .mouth.right {
-    right: 3.6em;
-    border-radius: 0 0 100% 0;
-  }
+/* Right part of the mouth */
+.pumpkin .mouth.right {
+    right: 3.6em; /* Position to the right */
+    border-radius: 0 0 100% 0; /* Rounded corners */
+}
 
-  .pumpkin .mouth.left {
-    left: 3.6em;
-    border-radius: 0 0 0 100%;
-  }
-  .pumpkin .teeth {
-    width: 0.5em;
-    height: 1em;
-    position: absolute;
-    top: 7.7em;
-    left: 7.25em;
-    border-top: 0.8em solid transparent;
-    border-bottom: 0em solid transparent;
-    border-left: 0.8em solid #fcfbfb;
-  }
+/* Left part of the mouth */
+.pumpkin .mouth.left {
+    left: 3.6em; /* Position to the left */
+    border-radius: 0 0 0 100%; /* Rounded corners */
+}
 
-  .pumpkin .teeth:before, .pumpkin .teeth:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 0.8em solid transparent;
-    
-  }
+/* Teeth on the pumpkin */
+.pumpkin .teeth {
+    width: 0.5em; /* Width of teeth */
+    height: 1em; /* Height of teeth */
+    position: absolute; /* Position absolute for placement */
+    top: 7.7em; /* Position near the mouth */
+    left: 7.25em; /* Center teeth */
+    border-top: 0.8em solid transparent; /* Create top triangle */
+    border-bottom: 0em solid transparent; /* No bottom border */
+    border-left: 0.8em solid #fcfbfb; /* Left side color */
+}
 
-  .pumpkin .teeth:before {
-    right: 2.2em;
-    top: -0.65em;
-    transform: rotate(30deg);
-    border-bottom: 0.5em solid transparent;
-    border-left: 1em solid #fdfdfc;
-  }
+/* Teeth pseudo-elements for extra detail */
+.pumpkin .teeth:before,
+.pumpkin .teeth:after {
+    content: ""; /* Empty content for pseudo-elements */
+    display: block; /* Make them block elements */
+    position: absolute; /* Position absolute for placement */
+    width: 0; /* Width set to 0 for triangular shape */
+    height: 0; /* Height set to 0 for triangular shape */
+    border-top: 0.8em solid transparent; /* Create top triangle */
+}
 
-  .pumpkin .teeth:after {
-    left: 1em;
-    top: -0.85em;
-    transform: rotate(30deg);
-    border-bottom: 0.5em solid transparent;
-    border-left: 1em solid #fcfbfb;
-  }
+/* First tooth detail */
+.pumpkin .teeth:before {
+    right: 2.2em; /* Position to the right */
+    top: -0.65em; /* Position above */
+    transform: rotate(30deg); /* Slight rotation */
+    border-bottom: 0.5em solid transparent; /* Create bottom triangle */
+    border-left: 1em solid #fdfdfc; /* Left side color */
+}
 
- .shadow {
-    margin: 10% auto 0;
-    background: #000;
-    width: 230px;
-    height: 50px;
-    border-radius: 50%;
-    animation: zoom 3s infinite;
-  }
+/* Second tooth detail */
+.pumpkin .teeth:after {
+    left: 1em; /* Position to the left */
+    top: -0.85em; /* Position above */
+    transform: rotate(30deg); /* Slight rotation */
+    border-bottom: 0.5em solid transparent; /* Create bottom triangle */
+    border-left: 0.8em solid #fcfbfb; /* Left side color */
+}
 
-  @keyframes float {
+/* Shadow effect beneath the pumpkin */
+.shadow {
+    margin: 10% auto 0; /* Center the shadow */
+    background: #000; /* Shadow color */
+    width: 230px; /* Width of the shadow */
+    height: 50px; /* Height of the shadow */
+    border-radius: 50%; /* Circular shadow */
+    animation: zoom 3s infinite; /* Zoom animation */
+}
+
+/* Floating animation keyframes */
+@keyframes float {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateY(0); /* Start and end position */
     }
 
     50% {
-        transform: translateY(-10%);
+        transform: translateY(-10%); /* Float upward */
     }
-  }
+}
 
-  @keyframes zoom {
-      0%, 100% {
-          transform: scale(1);
-      }
+/* Zoom animation keyframes */
+@keyframes zoom {
+    0%, 100% {
+        transform: scale(1); /* Start and end at normal size */
+    }
 
-      50% {
-          transform: scale(0.8);
-      }
-  }
-  .container:hover{
-    
-  }
+    50% {
+        transform: scale(0.8); /* Zoom in */
+    }
+}
+
+/* Additional hover effects for the container */
+.container:hover {
+    /* Currently empty, can add effects if needed */
+}
